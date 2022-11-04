@@ -1,16 +1,18 @@
 import { TicketCard } from '../TicketCard';
-import { TicketCardData } from '../TicketCard/TicketCard';
+import { TicketCardProps } from '../TicketCard/TicketCard';
+import { VirtualList } from '../VirtualList';
+import './styles.module.css';
 
 export interface TicketsListProps {
-  data?: TicketCardData[] | null;
+  data?: TicketCardProps[] | null;
 }
 
 export const TicketsList = ({ data }: TicketsListProps): JSX.Element => {
   return (
-    <ul>
-      {data?.map((ticket) => (
-        <TicketCard key={ticket._id} ticket={ticket} />
-      ))}
-    </ul>
+    <VirtualList
+      data={data}
+      ItemComponent={TicketCard}
+      idExtractor={(item: TicketCardProps) => item.ticket._id}
+    />
   );
 };

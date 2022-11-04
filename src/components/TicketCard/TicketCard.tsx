@@ -14,7 +14,7 @@ export const TicketCard = ({ ticket }: TicketCardProps): JSX.Element => {
   const { _id, description, priority, status, subject } = ticket;
   return (
     <li>
-      <h3>{`${subject} + ${_id}`}</h3>
+      <h3>{`Ticket #${_id}: ${subject}`}</h3>
       <p>{description}</p>
       <p>{status}</p>
       <p>{priority}</p>
