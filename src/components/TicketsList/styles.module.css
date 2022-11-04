@@ -1,0 +1,7 @@
+.ticketsList {
+  margin: auto;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow: auto;
+  margin-top: 5vh;
+}

@@ -1,6 +1,6 @@
 import { TicketCardProps } from '../components/TicketCard/TicketCard';
 
-export const ticketsMock: TicketCardProps[] = Array.from(Array(1000)).map(
+export const ticketsMock: TicketCardProps[] = Array.from(Array(10)).map(
   (x) => ({
     ticket: {
       _id: `${Math.random()}`,
