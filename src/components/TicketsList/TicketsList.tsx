@@ -1,3 +1,4 @@
+import { LoadingSpinner } from '../LoadingSpinner';
 import { TicketCard } from '../TicketCard';
 import { TicketCardProps } from '../TicketCard/TicketCard';
 import { VirtualList } from '../VirtualList';
@@ -13,6 +14,7 @@ export const TicketsList = ({ data }: TicketsListProps): JSX.Element => {
       <VirtualList
         data={data}
         ItemComponent={TicketCard}
+        SpinnerComponent={LoadingSpinner}
         idExtractor={(item: TicketCardProps) => item.ticket._id}
       />
     </div>
