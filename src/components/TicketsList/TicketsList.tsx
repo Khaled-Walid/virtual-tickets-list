@@ -32,17 +32,19 @@ export const TicketsList = ({ data }: TicketsListProps): JSX.Element => {
           }}
         />
       </div>
-      <VirtualList
-        data={loadedTickets}
-        ItemComponent={TicketCard}
-        SpinnerComponent={LoadingSpinner}
-        idExtractor={(item: TicketCardProps) => item.ticket._id}
-        listConfig={{
-          itemHeight: 80,
-          numItems: data?.length ?? 0,
-          windowHeight: 700,
-        }}
-      />
+      <div className={styles.listContainer}>
+        <VirtualList
+          data={loadedTickets}
+          ItemComponent={TicketCard}
+          SpinnerComponent={LoadingSpinner}
+          idExtractor={(item: TicketCardProps) => item.ticket._id}
+          listConfig={{
+            itemHeight: 80,
+            numItems: data?.length ?? 0,
+            windowHeight: 600,
+          }}
+        />
+      </div>
     </div>
   );
 };
