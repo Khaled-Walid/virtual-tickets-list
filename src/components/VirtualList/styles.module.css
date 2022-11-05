@@ -1,0 +1,15 @@
+.virtualList {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.virtualList ul {
+  padding: 0;
+}
+
+.virtualList li {
+  list-style: none;
+  padding: 0 4px;
+}

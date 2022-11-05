@@ -59,7 +59,7 @@ export const VirtualList = <ItemType,>({
     setScrollTop(e.currentTarget.scrollTop);
 
   const cardsList: JSX.Element | false = data != null && (
-    <div className={styles.temp} onScroll={onScroll}>
+    <div className={styles.virtualList} onScroll={onScroll}>
       <ul style={{ position: 'relative', height: `${innerHeight}px` }}>
         {items.map((e: Item) => {
           return (
