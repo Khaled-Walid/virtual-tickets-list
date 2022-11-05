@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { LoadingSpinner } from '../LoadingSpinner';
 import { TicketCard } from '../TicketCard';
 import { TicketCardProps } from '../TicketCard/TicketCard';
@@ -9,6 +10,14 @@ export interface TicketsListProps {
 }
 
 export const TicketsList = ({ data }: TicketsListProps): JSX.Element => {
+  // this effect is just to fake loading state
+  const [loadedTickets, setLoadedTickets] = useState<
+    TicketCardProps[] | null | undefined
+  >(null);
+  useEffect(() => {
+    setTimeout(() => setLoadedTickets(data), 2000);
+  }, []);
+
   return (
     <div className={styles.ticketsList}>
       <h1>All Tickets</h1>
@@ -24,7 +33,7 @@ export const TicketsList = ({ data }: TicketsListProps): JSX.Element => {
         />
       </div>
       <VirtualList
-        data={data}
+        data={loadedTickets}
         ItemComponent={TicketCard}
         SpinnerComponent={LoadingSpinner}
         idExtractor={(item: TicketCardProps) => item.ticket._id}
