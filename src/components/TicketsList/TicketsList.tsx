@@ -16,6 +16,11 @@ export const TicketsList = ({ data }: TicketsListProps): JSX.Element => {
         ItemComponent={TicketCard}
         SpinnerComponent={LoadingSpinner}
         idExtractor={(item: TicketCardProps) => item.ticket._id}
+        listConfig={{
+          itemHeight: 350,
+          numItems: data?.length ?? 0,
+          windowHeight: 700,
+        }}
       />
     </div>
   );
