@@ -1,14 +1,39 @@
 import { TicketCardProps } from '../components/TicketCard/TicketCard';
 
-export const ticketsMock: TicketCardProps[] = Array.from(Array(20)).map(
+const subjects: string[] = [
+  'crack above wall socket',
+  'broken window',
+  'broken door',
+  'construction is incomplete',
+];
+const statuses: Array<'open' | 'closed' | 'in progress'> = [
+  'open',
+  'in progress',
+  'closed',
+];
+const priorities: Array<'low' | 'medium' | 'urgent'> = [
+  'low',
+  'medium',
+  'urgent',
+];
+const descriptions: string[] = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel est eleifend metus faucibus placerat Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel est eleifend metus faucibus placerat.',
+  'Lorem ipsum dolor sit amet, consectetur adipiscasdsa sadaing elit.',
+  'Lorem consectetur adipiscing elit. ',
+];
+
+const pickRandom = <ArrItem>(array: ArrItem[]): ArrItem => {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
+export const ticketsMock: TicketCardProps[] = Array.from(Array(100)).map(
   (x) => ({
     ticket: {
-      _id: `${Math.random()}`,
-      subject: 'crack above wall socket',
-      status: 'open',
-      priority: 'low',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel est eleifend metus faucibus placerat. Nam non orci elit. Vestibulum nec risus sed justo dictum consectetur eu ac mauris. Suspendisse pretium tempus sapien vitae cursus. Phasellus ornare lacus eu purus tempor viverra. Cras imperdiet ex id dui bibendum auctor. Donec ornare justo lacus, ut feugiat justo hendrerit id. Vestibulum convallis elit luctus enim vestibulum, quis dignissim orci tincidunt.',
+      _id: `${Math.floor(Math.random() * 100000)}`,
+      subject: pickRandom(subjects),
+      status: pickRandom(statuses),
+      priority: pickRandom(priorities),
+      description: pickRandom(descriptions),
     },
   }),
 );
